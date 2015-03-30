@@ -1,0 +1,45 @@
+#!/usr/bin/gnuplot
+#
+reset
+#
+# wxt
+set terminal wxt size 450,362 font 'Verdana,10' persist
+# png
+#set terminal pngcairo size 350,262 enhanced font 'Verdana,10'
+set output 'removeNoise4.png'
+
+set xrange [0:200]
+set yrange [-1:1]
+set xtics 20
+set style line 1 lc rgb 'black' pt 5
+set style line 2 lc rgb 'green' pt 3
+set style line 1 lt 1 lw 0.5
+set style line 2 lt 1 lc rgb "skyblue" lw 2
+set style arrow 1 head filled size screen 0.025, 30, 45 ls 2
+set style arrow 2 nohead ls 1
+
+#ARROWS
+set arrow from 20,0 to 20,0.05 as 2
+set arrow from 35,0 to 35,0.10 as 2
+set arrow from 50,0 to 50,0.05 as 2
+set arrow from 80,0 to 80,0.07 as 2
+set arrow from 120,0 to 120,0.10 as 2
+set arrow from 150,0 to 150,0.05 as 2
+
+set arrow from 30,0 to 30,0.15 as 1
+set arrow from 40,0 to 40,0.20 as 1
+set arrow from 60,0 to 60,0.27 as 1
+set arrow from 130,0 to 130,0.15 as 1
+
+plot '-' w p ls 1, '-' w p ls 2
+20 0
+35 0
+50 0
+80 0
+120 0
+150 0
+e
+30 0 
+40 0
+60 0
+130 0
