@@ -12,5 +12,6 @@ plot t*sin(t)
 - To unset polar:
 	```
 	unset polar
+
 	show polar
 	```
