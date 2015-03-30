@@ -3,35 +3,58 @@
 reset
 #
 # wxt
-set terminal wxt size 450,362 font 'Verdana,10' persist
+#set terminal wxt size 450,362 font 'Verdana,10' persist
 # png
-#set terminal pngcairo size 350,262 enhanced font 'Verdana,10'
+set terminal pngcairo size 850,400 enhanced font 'Verdana,10'
 set output 'removeNoise4.png'
 
+set grid
+set autoscale
 set xrange [0:200]
 set yrange [-1:1]
 set xtics 20
 set style line 1 lc rgb 'black' pt 5
 set style line 2 lc rgb 'green' pt 3
+set style line 3 lc rgb 'green' pt 3
+set style line 4 lc rgb 'blue' pt 2
 set style line 1 lt 1 lw 0.5
-set style line 2 lt 1 lc rgb "skyblue" lw 2
+set style line 2 lt 1 lc rgb "skyblue" lw 3
+set style line 3 lt 1 lc rgb "green" lw 2
+set style line 4 lt 1 lc rgb "blue" lw 1
+set style line 5 lt 1 lc rgb "red" lw 1
 set style arrow 1 head filled size screen 0.025, 30, 45 ls 2
 set style arrow 2 nohead ls 1
-
+set style arrow 3 head filled size screen 0.025, 30, 45 ls 3
+set style arrow 4 heads size screen 0.008,10 ls 4
+set style arrow 5 heads size screen 0.008,10 ls 5
 #ARROWS
 set arrow from 20,0 to 20,0.05 as 2
 set arrow from 35,0 to 35,0.10 as 2
-set arrow from 50,0 to 50,0.05 as 2
-set arrow from 80,0 to 80,0.07 as 2
+set arrow from 50,0 to 50,0.25 as 2
+set arrow from 80,0 to 80,0.05 as 2
 set arrow from 120,0 to 120,0.10 as 2
 set arrow from 150,0 to 150,0.05 as 2
 
-set arrow from 30,0 to 30,0.15 as 1
-set arrow from 40,0 to 40,0.20 as 1
-set arrow from 60,0 to 60,0.27 as 1
-set arrow from 130,0 to 130,0.15 as 1
+set arrow from 26.67,0 to 26.67,0.15 as 1
+set arrow from 40,0 to 40,0.350 as 1
+set arrow from 52,0 to 52,0.50 as 3
+set arrow from 130,0 to 130,0.15 as 3
 
-plot '-' w p ls 1, '-' w p ls 2
+set arrow from 20,-0.1 to 35,-0.1 as 4
+set arrow from 26.67,-0.15 to 50,-0.15 as 4
+set arrow from 40.0,-0.2 to 80,-0.2 as 4
+set arrow from 52.0,-0.25 to 120,-0.25 as 5
+set arrow from 120.0,-0.3 to 150,-0.3 as 4
+
+set label "onset" at 52, 0.55
+set label "onset" at 130, 0.25
+set label "step1" at 10, -0.10
+set label "step2" at 15, -0.16
+set label "step3" at 30, -0.20
+set label "step4" at 40, -0.25
+set label "step5" at 110, -0.3
+
+plot '-' title "onsets from PopulatedData" w p ls 1, '-' title "estimated onsets based on weighted-arithmetic mean" w p ls 2
 20 0
 35 0
 50 0
@@ -39,7 +62,7 @@ plot '-' w p ls 1, '-' w p ls 2
 120 0
 150 0
 e
-30 0 
+26.67 0 
 40 0
-60 0
+52 0
 130 0
