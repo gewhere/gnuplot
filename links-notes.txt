@@ -1,0 +1,88 @@
+
+…or create a new repository on the command line
+
+echo "# gnuplot" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/gewhere/gnuplot.git
+git push -u origin master
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/gewhere/gnuplot.git
+git push -u origin master
+
+///////////////////////////////////////
+unset border
+set polar
+set angles degrees #set gnuplot on degrees instead of radians
+
+set style line 10 lt 1 lc 0 lw 0.3 #redefine a new line style for the grid
+
+set grid polar 60 #set the grid to be displayed every 60 degrees
+set grid ls 10
+
+set xrange [-6000:6000] #make gnuplot to go until 6000
+set yrange [-6000:6000]
+
+set xtics axis #disply the xtics on the axis instead of on the border
+set ytics axis
+
+set xtics scale 0 #"remove" the tics so that only the y tics are displayed
+set xtics ("" 1000, "" 2000, "" 3000, "" 4000, "" 5000, "" 6000) #set the xtics only go from 0 to 6000 with increment of1000 but do not display anything. This has to be done otherwise the grid will not be displayed correctly.
+set ytics 0, 1000, 6000 #make the ytics go from the center (0) to 6000 with incrment of 1000
+
+set size square 
+
+set key lmargin
+
+set_label(x, text) = sprintf("set label '%s' at (6500*cos(%f)), (6500*sin(%f))     center", text, x, x) #this places a label on the outside
+
+#here all labels are created
+eval set_label(0, "0")
+eval set_label(60, "60")
+eval set_label(120, "120")
+eval set_label(180, "180")
+eval set_label(240, "240")
+eval set_label(300, "300")
+
+
+set style line 11 lt 1 lw 2 pt 2 ps 2 #set the line style for the plot
+
+#and finally the plot
+plot "-" u 1:2 t "Max strain" w lp ls 11
+0 3400
+60 5300
+120 4700
+180 3800
+240 4100
+300 3100
+360 3400
+e
+
+////////////////////////////////////////////////////////////////////////////
+
+lowrank.net/gnuplot/polar-e.html
+http://www.gnuplot-tricks.blogspot.fi/
+// <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+http://gnuplot.sourceforge.net/demo/polar.html
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+/////////////
+gnuplot> unset border
+gnuplot> set xrange [-1:1]
+gnuplot> plot [-0.7:0.7] 0
+Warning: empty y range [0:0], adjusting to [-1:1]
+gnuplot> set arrow from -0.2, -0.5 to -0.2, 0.5
+gnuplot> replot
+Warning: empty y range [0:0], adjusting to [-1:1]
+gnuplot> set border
+gnuplot> replot
+Warning: empty y range [0:0], adjusting to [-1:1]
+gnuplot> set xtics 
+
+
+////////////////////
+http://www.gnuplotting.org/plotting-single-points/

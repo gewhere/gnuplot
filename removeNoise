@@ -3,10 +3,10 @@
 reset
 #
 # wxt
-#set terminal wxt size 450,362 font 'Verdana,10' persist
+set terminal wxt size 450,362 font 'Verdana,10' persist
 # png
-set terminal pngcairo size 850,400 enhanced font 'Verdana,10'
-set output 'removeNoise4.png'
+#set terminal pngcairo size 850,400 enhanced font 'Verdana,10'
+#set output 'removeNoise4.png'
 
 set grid
 set autoscale

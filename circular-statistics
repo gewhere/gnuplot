@@ -1,0 +1,41 @@
+#!bin/bash/gnuplot
+#
+reset
+# png
+set terminal pngcairo size 850,850 # enhanced font 'Verdana,10'
+set output 'circularStatsDyads789.png'
+
+unset border
+unset raxis 	# this line and the line below unset the duplication of xaxis
+set rtics scale 0 format ''
+set dummy t, y
+set grid polar
+# set clip
+set polar
+set xtics axis nomirror
+set ytics axis nomirror
+# unset rtics
+# set samples 160
+# set xzeroaxis
+# set yzeroaxis
+set zzeroaxis
+set trange [0:2*pi]
+set title "Dyads 7, 8, 9"
+#
+set style line 1 lc rgb 'blue' pt 5   # square
+set style line 2 lc rgb 'red' pt 7   # circle
+set style line 3 lc rgb 'green' pt 9   # triangle
+# self / metro / rel
+plot '-' title "Stability" w p ls 1, '-' title "Tempo stability" w p ls 2, '-' title "Entrainment" w p ls 3
+ -0.01050511831429954 0.9765474989595615
+ 0.02297027358708419 0.9793877195155429
+ 0.00217391821128133 0.982513377978026
+e
+ 0.1825564708093451 0.9382901725814158
+ 0.8990036909246851 -0.1947536690936361
+ 0.1122858309431158 0.6299984823064129
+e
+ -0.02596746307127296 -0.9960894477061399
+ -0.121622929102023 -0.9860434542762833
+ -0.1686332231322942 -0.9799930556020486
+e
